@@ -50,7 +50,6 @@ The one-command script regenerates all paper tables into `./results/`:
 
 ## What to download
 
-For Phase-2 discussion you may use GitHub, but for Phase-1/Phase-2 final submission you must provide a permanent archive (e.g., Zenodo).
 - `PRIME-Ring` source code and evaluation scripts
 - Small CSV datasets used in the paper (`./data/`)
 - Per-table, self-contained bundles under `./artifacts/`
@@ -139,11 +138,6 @@ If you add larger upstream datasets (e.g., SNAP traces), follow their licenses a
 
 If you use this artifact, cite the PRIME-Ring paper (camera-ready bib entry to be added).
 
-## Artifact appendix
-
-A USENIX-style artifact appendix template is provided in `artifact_appendix/`. Compile `artifact_appendix/artifact_appendix.tex` and upload the resulting PDF in HotCRP for Phase-2.
-
-
 ## AEC checklist
 
-See `AEC_CHECKLIST.md` for a reviewer-style Phase-1/Phase-2 checklist.
+See `AEC_CHECKLIST.md` 
