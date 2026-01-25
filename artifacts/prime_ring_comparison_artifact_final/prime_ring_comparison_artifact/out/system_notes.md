@@ -1,0 +1,5 @@
+- PRIME-Ring (proposed): Certificate-gated release; constant-shape verification; governed opening tied to epoch snapshots.
+- ASMR (IoMT sequential multi-signer ring signature): Designated verifier can access signer identity; includes tracing mechanism for accountability.
+- RAT-Ring (IIoT report & traceable ring signature): Traceable ring signatures for publish-subscribe; PRIME-Ring notes no constant-shape or exposure targets.
+- SyRA (Sybil-resilient anonymous signatures): Context switching targets Sybil resilience/unlinkability; no opening authority and no forward security.
+- PPDSBAC (Decentralized signature-based access control): Uses ZK proofs + pseudonyms for unlinkability; trace authority can de-anonymize; time periods enable direct revocation.

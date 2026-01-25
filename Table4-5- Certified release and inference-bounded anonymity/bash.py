@@ -1,0 +1,11 @@
+python prime_ring_eval_certified_release.py \
+  --out_dir /mnt/data/prime_ring_cert_release_results2 \
+  --seed 0 \
+  --runs_per_domain 80 \
+  --tau_target 0.15 \
+  --hmin_target 3.0 \
+  --max_iters 3 \
+  --n0 12 \
+  --n_step 6 \
+  --n_max 60 \
+  --max_osn_users 4000

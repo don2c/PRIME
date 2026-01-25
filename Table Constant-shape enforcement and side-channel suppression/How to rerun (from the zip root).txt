@@ -1,0 +1,29 @@
+
+
+\usepackage{booktabs}
+
+How to rerun (from the zip root)
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+python3 -m prime_ring_shape.run \
+  --data-dir data \
+  --out-dir results \
+  --seed 7 \
+  --runs 50 \
+  --tau 0.02 \
+  --Hstar 4.0 \
+  --k-support 16 \
+  --delta-n-max 64 \
+  --L-bytes 4096 \
+  --Theta-ms 8.0 \
+  --delta-L 8 \
+  --delta-Theta-ms 0.2
+
+python3 -m prime_ring_shape.render_latex \
+  --summary-csv results/shape_summary.csv \
+  --metadata-json results/metadata.json \
+  --out-tex results/shape_summary_table.tex \
+  --label tab:prime_ring_shape

@@ -1,0 +1,41 @@
+systems:
+- name: PRIME-Ring (proposed)
+  aov_oblivious_verification: 'yes'
+  certified_release: 'yes'
+  constant_shape_transcript: 'yes'
+  governed_opening_trace: 'yes'
+  epoch_freshness: 'yes'
+  notes: Certificate-gated release; constant-shape verification; governed opening
+    tied to epoch snapshots.
+- name: ASMR (IoMT sequential multi-signer ring signature)
+  aov_oblivious_verification: 'no'
+  certified_release: 'no'
+  constant_shape_transcript: 'no'
+  governed_opening_trace: 'yes'
+  epoch_freshness: 'no'
+  notes: Designated verifier can access signer identity; includes tracing mechanism
+    for accountability.
+- name: RAT-Ring (IIoT report & traceable ring signature)
+  aov_oblivious_verification: 'no'
+  certified_release: 'no'
+  constant_shape_transcript: 'no'
+  governed_opening_trace: 'yes'
+  epoch_freshness: 'no'
+  notes: Traceable ring signatures for publish-subscribe; PRIME-Ring notes no constant-shape
+    or exposure targets.
+- name: SyRA (Sybil-resilient anonymous signatures)
+  aov_oblivious_verification: 'no'
+  certified_release: 'no'
+  constant_shape_transcript: 'no'
+  governed_opening_trace: 'no'
+  epoch_freshness: 'no'
+  notes: Context switching targets Sybil resilience/unlinkability; no opening authority
+    and no forward security.
+- name: PPDSBAC (Decentralized signature-based access control)
+  aov_oblivious_verification: partial
+  certified_release: 'no'
+  constant_shape_transcript: 'no'
+  governed_opening_trace: 'yes'
+  epoch_freshness: partial
+  notes: Uses ZK proofs + pseudonyms for unlinkability; trace authority can de-anonymize;
+    time periods enable direct revocation.

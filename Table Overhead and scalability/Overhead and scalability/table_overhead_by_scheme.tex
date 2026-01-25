@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{Overhead by scheme (mean wall-clock). PRIME-Ring includes synthesis, certification, tightening, and sign/verify under a constant-shape plan.}
+\label{tab:overhead_by_scheme}
+\small
+\setlength{\tabcolsep}{5pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Scheme & Synthesis (s) & Cert. (s) & Tighten (s) & Sign (s) & Verify (s) & Peak RSS (MB) \\
+\midrule
+PRIME-Ring (ours) & 0.32 & 0.04 & 1.65 & 0.045 & 0.05 & 285.0 \\
+Syra & 0.418 & 0.05 & 2.729 & 0.055 & 0.064 & 312.9 \\
+RAT-Ring & 0.462 & 0.053 & 2.991 & 0.06 & 0.073 & 315.7 \\
+ASMR-IoMT & 0.506 & 0.054 & 3.318 & 0.068 & 0.076 & 333.2 \\
+PPDSBAC & 0.407 & 0.05 & 2.689 & 0.057 & 0.065 & 329.5 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

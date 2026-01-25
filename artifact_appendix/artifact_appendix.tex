@@ -1,0 +1,92 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{times}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+
+\title{PRIME-Ring Artifact Appendix (USENIX Security '26)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Artifact overview}
+This artifact package regenerates the quantitative tables reported in the PRIME-Ring paper from the bundled datasets and the released evaluation scripts.
+The artifact is non-destructive and runs offline (no network scanning, no privileged actions).
+
+\section{Hardware and software requirements}
+\textbf{OS:} Linux or macOS recommended. \\
+\textbf{CPU:} 2+ cores. \\
+\textbf{RAM:} 8\,GB. \\
+\textbf{Software (native):} Python 3.10+ and a POSIX shell. \\
+\textbf{Software (Docker):} Docker 24+ (recommended for consistent evaluation). \\
+\textbf{GPU:} Not required.
+
+\section{Quickstart}
+\subsection{Docker (recommended)}
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+docker build -t primering-ae .
+docker run --rm -it primering-ae bash -lc "bash scripts/run_all.sh"
+\end{lstlisting}
+
+\subsection{Native Python}
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+bash scripts/run_all.sh
+\end{lstlisting}
+
+\section{Claims and reproduction roadmap}
+The paper's main empirical claims are expressed as tables. Table~\ref{tab:claims} maps each claim to the exact command and the expected output files.
+All outputs are written under \texttt{./results/}. Each table directory contains: (i) intermediate CSV summaries, and (ii) the final \texttt{.tex} table used in the paper.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lllll}
+\toprule
+Claim & Paper table(s) & Command & Output directory & Main output \\
+\midrule
+C1 & Table 2--3 & \texttt{bash scripts/run\_all.sh} & \texttt{results/aov\_hiding/} & \texttt{table\_aov\_hiding.tex} \\
+C2 & Table 4--5 & \texttt{bash scripts/run\_all.sh} & \texttt{results/cert\_release/} & \texttt{table\_cert\_release.tex} \\
+C3 & Table 6--7 & \texttt{bash scripts/run\_all.sh} & \texttt{results/sparsity\_churn/} & \texttt{table\_sparsity\_churn.tex} \\
+C4 & Table 8 & \texttt{bash scripts/run\_all.sh} & \texttt{results/shape/} & \texttt{table\_shape.tex} \\
+C5 & Table 9 & \texttt{bash scripts/run\_all.sh} & \texttt{results/comparison\_matrix/} & \texttt{table\_comparison\_matrix.tex} \\
+C6 & Table 10 & \texttt{bash scripts/run\_all.sh} & \texttt{results/overhead\_by\_scheme/} & \texttt{table\_overhead\_by\_scheme.tex} \\
+C7 & Table 11 & \texttt{bash scripts/run\_all.sh} & \texttt{results/governed\_opening/} & \texttt{table\_governed\_opening.tex} \\
+C8 & Table 12 & \texttt{bash scripts/run\_all.sh} & \texttt{results/epoch\_fs/} & \texttt{table\_epoch\_fs.tex} \\
+\bottomrule
+\end{tabular}
+\caption{Claim-to-command mapping for reproducibility.}
+\label{tab:claims}
+\end{table*}
+
+\paragraph{Single-table execution.}
+Each table can be reproduced independently by running the corresponding script under \texttt{artifacts/}. For example, to reproduce Table~12 (epoch freshness / forward security):
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+python artifacts/prime_ring_epoch_fs_artifact/prime_ring_epoch_fs_artifact/\
+prime_ring_eval_epoch_forward_security.py \
+  --data_dir ./data --out_dir ./results/epoch_fs --seed 123
+\end{lstlisting}
+
+\section{Expected runtime and determinism}
+On a 2--4 core laptop, the full \texttt{run\_all.sh} pipeline completes in minutes (each table script runs on a small evaluation slice).
+All scripts accept a \texttt{--seed} option; \texttt{run\_all.sh} uses fixed seeds by default. For the certified-release table, \texttt{run\_all.sh} sets \texttt{--runs\_per\_domain 20} and \texttt{--max\_osn\_users 2000} to keep the evaluation bounded for reviewers. For the constant-shape table, \texttt{run\_all.sh} sets \texttt{--runs 50}.
+If you update Python package versions, small floating-point differences may appear, but the relative trends and table structure should match.
+
+\section{How to compare with the paper}
+For each table, compare the regenerated \texttt{.tex} in \texttt{./results/<table\_dir>/} to the table source used in the camera-ready paper.
+The \texttt{.csv} files in the same directory provide the raw aggregates used to produce the \texttt{.tex}.
+
+\section{Safety statement}
+This artifact is \textbf{non-destructive}. It does not exploit real systems, scan networks, or require elevated privileges.
+
+\end{document}

@@ -1,0 +1,6 @@
+Scheme,$G$ fixed,slope (ms/session),$R^2$,$S$ fixed,slope (ms/grid),$R^2$ 
+PRIME-Ring (ours),6,7.3,0.98,100,75.5,0.99
+Syra,6,10.06,0.981,100,120.42,0.989
+RAT-Ring,6,11.1,0.967,100,132.88,0.988
+ASMR-IoMT,6,12.14,0.98,100,145.34,0.99
+PPDSBAC,6,10.4,0.972,100,124.58,0.988

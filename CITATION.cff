@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the associated paper.
+title: PRIME-Ring Artifact
+version: 0.1.0
+authors:
+- family-names: Boahen
+  given-names: Edward
+license: MIT
+date-released: '2026-01-25'
