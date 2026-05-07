@@ -1,4 +1,4 @@
-# PRIME Artifact (USENIX Security submission)
+# PRIME Artifact (NDSS submission)
 
 This repository contains the artifacts for **PRIME-Ring** (Policy-hidden Ring with Identifiable Members and Epoch security).
 It reproduces the paper’s tables from the released datasets, generators, and evaluation scripts.
