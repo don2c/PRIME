@@ -1,4 +1,4 @@
-# AEC Checklist (USENIX Security '26)
+# AEC Checklist (NDSS)
 
 This checklist is written for quick, reviewer-style verification.
 
